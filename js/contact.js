@@ -92,6 +92,7 @@ $(document).ready(function(){
                 return false;
             }
         });
+        $('#sub_spinner').attr("style","");
          //Website - ContactUs
        $.ajax({
             url: 'https://teleduce.corefactors.in/lead/apiwebhook/b946312a-89c1-4fe9-a7b3-0db1b7ade389/Default/',
@@ -105,9 +106,11 @@ $(document).ready(function(){
                 "lead_source" : "Website - ContactUs",
             },
             success: function (json) {console.log(json.response +": "+ json.response_code);
+            $('#sub_spinner').attr("style","display:none");
             window.location.replace("contact/thankyou.html");
         },
             error: function(xhr, errmsg, err) {console.log(xhr.status + ": " + xhr.responseText);
+            $('#sub_spinner').attr("style","display:none");
             window.location.replace("contact/thankyou.html");
         }
         }); 
